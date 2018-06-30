@@ -7,7 +7,8 @@ public class TypeExchange {
 		char c=(char)65536;
 		int n;
 		n=c;//隐式类型转换
-		c=(char)n;
+		System.out.println("n="+n);		
+		c=(char)n;	
 		
 		//整型和浮点型的类型转换问题
 		int x=100;
