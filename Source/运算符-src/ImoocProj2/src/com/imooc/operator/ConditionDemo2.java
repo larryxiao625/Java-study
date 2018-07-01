@@ -14,11 +14,9 @@ public class ConditionDemo2 {
 		int n=s.nextInt();
 		if(n%2==0)
 		{
-			System.out.println(n+"是偶数！");
+			System.out.println(n+"n是偶数");
 		}else{
-			System.out.println(n+"是奇数！");
+			System.out.println(n+"n是奇数");
 		}
-
 	}
-
 }
