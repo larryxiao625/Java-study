@@ -6,9 +6,9 @@ public class WeekDemo1 {
 
 	public static void main(String[] args) {
 		System.out.println("请输入表示星期的英文单词");
-		Scanner s=new Scanner(System.in);
-		String week=s.next();
-		week=week.toUpperCase();//把字符串中的字符全部改为大写
+		Scanner s = new Scanner(System.in);
+		String week = s.next();
+		week = week.toUpperCase();// 把字符串中的字符全部改为大写
 		switch (week) {
 		case "MONDAY":
 			System.out.println("星期一");
