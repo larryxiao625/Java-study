@@ -19,7 +19,7 @@ public class ScoreDemo {
 		sumch=intArray[0][0]+intArray[1][0]+intArray[2][0];
 		avech=sumch/3;
 		int summa=0,avema=0;
-		summa=intArray[1][1]+intArray[1][1]+intArray[2][1];
+		summa=intArray[0][1]+intArray[1][1]+intArray[2][1];
 		avema=summa/3;
 		System.out.println("语文的总成绩为"+sumch);
 		System.out.println("语文的平均分为"+avech);
