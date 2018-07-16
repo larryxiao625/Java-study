@@ -13,6 +13,7 @@ public class Reactangle {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Reactangle rc=new Reactangle();
+		int area=rc.area();
 		System.out.println("长方形的面积为"+rc.area());
 		
 
