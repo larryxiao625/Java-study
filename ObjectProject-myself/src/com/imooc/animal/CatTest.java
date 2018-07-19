@@ -13,7 +13,7 @@ public class CatTest {
 //		one.eat();
 //		one.run();
 		one.setName("花花");
-		one.setMonth(-2);
+		one.setMonth(2);
 		one.setWeight(1000);
 		one.setSpecies("英国短毛猫");
 //		two.name="凡凡";
