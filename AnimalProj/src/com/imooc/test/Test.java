@@ -1,5 +1,6 @@
 package com.imooc.test;
 
+import com.imooc.animal.Animal;
 import com.imooc.animal.Cat;
 import com.imooc.animal.Dog;
 
@@ -17,6 +18,9 @@ public class Test {
 		two.setMonth(1);
 		two.eat();
 		two.sleep();
+		Animal three=new Animal();
+//		three.run();
+//		three.sleep();
 
 	}
 
