@@ -17,6 +17,12 @@ public class SchoolTest {
 		System.out.println("=================");
 		Student stu3=new Student("王五","S03","男",18);
 		System.out.println(stu3.introduction(sub1));
+		System.out.println("=================");
+//		测试指定专业中有多少个学生报名
+		sub1.addStudent(stu1);
+		sub1.addStudent(stu2);
+		sub1.addStudent(stu3);
+		System.out.println("报名课程人数："+sub1.getStudentNum());
 
 	}
 
