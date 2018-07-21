@@ -18,7 +18,9 @@ public class Test {
 		two.setMonth(1);
 		two.eat();
 		two.sleep();
-		Animal three=new Animal();
+		System.out.println("============");
+		two.eat("凡凡");
+//		Animal three=new Animal();
 //		three.run();
 //		three.sleep();
 

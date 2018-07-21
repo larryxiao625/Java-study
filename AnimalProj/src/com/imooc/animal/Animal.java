@@ -36,4 +36,8 @@ public class Animal {
 	public void eat() {
 		System.out.println(this.getName()+"在吃东西");
 	}
+	
+	private String sleep(String name) {
+		return "";
+	}
 }
