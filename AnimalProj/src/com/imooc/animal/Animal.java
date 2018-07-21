@@ -1,6 +1,12 @@
 package com.imooc.animal;
 
 public class Animal {
+	/*
+	 * public:允许在任意位置进行访问 
+	 * private:只允许在本类中访问
+	 * protected:当前类可以访问，同包子类/任意类型，跨包子类可以调用，跨包非子类不允许，
+	 * 默认（不加任何修饰符）：允许在当前类，同包子类/非子类,调用正常，跨包子类/非子类,不允许调用
+	 */
 	private String name;//昵称
 	private int month;//月份
 	private String speices;//品种
