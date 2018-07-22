@@ -10,9 +10,18 @@ public class Animal {
 	private String name;//昵称
 	private int month;//月份
 	private String speices;//品种
+	private static int st1=22;
+	public static int st2=23;
 	
+	static{
+		System.out.println("我是父类的静态代码块");
+	}
+	{
+		 System.out.println("我师父类的构造代码块");
+	}
+	//父类的构造不允许被继承，不允许被重写
 	public Animal() {
-		
+		System.out.println("我是子类的无参构造代码");
 	}
 	
 	public void setName(String name) {

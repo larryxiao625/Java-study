@@ -17,6 +17,7 @@ public class Dog extends Animal {
 
 	// 睡觉的方法
 	public void sleep() {
+		super.eat();//调用的是哪个的eat
 		System.out.println(this.getName() + "现在" + this.getMonth() + "个月大");
 	}
 	/*
