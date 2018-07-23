@@ -2,9 +2,7 @@ package com.imooc.homework3;
 
 public class Truck extends Car{
 	double weight;
-	public Truck() {
-		
-	}
+
 	public Truck(String color,String motor,double weight) {
 		super(color,motor);
 		this.weight=weight;
