@@ -62,7 +62,7 @@ public class Worker {
 	 * @param workerSex性别
 	 */
 	public void setWorkerSex(String workerSex) {
-		if(workerSex!="男"|workerSex!="女") {
+		if(workerSex!="男"&&workerSex!="女") {
 			this.workerSex="男";
 		}else {
 		this.workerSex = workerSex;

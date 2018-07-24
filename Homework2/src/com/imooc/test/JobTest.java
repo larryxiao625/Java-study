@@ -17,12 +17,12 @@ public class JobTest {
 		Worker wor4=new Worker("张美美",26,"S005","女",job3);
 		Worker wor5=new Worker("蓝迪",37,"S006","男",job1);
 		Worker wor6=new Worker("米莉",24,"S007","女",job3);
-		dep1.addWorker1(wor1);
-		dep1.addWorker1(wor2);
-		dep1.addWorker1(wor3);
-		dep2.addWorker2(wor4);
-		dep2.addWorker2(wor5);
-		dep2.addWorker2(wor6);
+		dep1.addWorker(wor1);
+		dep1.addWorker(wor2);
+		dep1.addWorker(wor3);
+		dep2.addWorker(wor4);
+		dep2.addWorker(wor5);
+		dep2.addWorker(wor6);
 		System.out.println(wor1.info());
 		System.out.println("================");
 		System.out.println(wor2.info());
@@ -35,8 +35,8 @@ public class JobTest {
 		System.out.println("================");
 		System.out.println(wor6.info());
 		System.out.println("================");
-		System.out.println(dep1.getDepartmentName()+"总共有"+dep1.getWorkerNum1()+"名员工");
-		System.out.println(dep2.getDepartmentName()+"总共有"+dep2.getWorkerNum2()+"名员工");
+		System.out.println(dep1.getDepartmentName()+"总共有"+dep1.getWorkerNum()+"名员工");
+		System.out.println(dep2.getDepartmentName()+"总共有"+dep2.getWorkerNum()+"名员工");
 
 
 		
