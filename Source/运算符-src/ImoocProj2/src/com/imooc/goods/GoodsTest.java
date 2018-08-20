@@ -30,7 +30,7 @@ public class GoodsTest {
 				System.out.println("输入商品名称");
 				String name = sc.next();
 				System.out.println("输入商品价格");
-				double price = sc.nextDouble();
+				double price = sc.nextInt();
 				Goods good = new Goods(id, name, price);
 				set.put(id, good);
 				break;

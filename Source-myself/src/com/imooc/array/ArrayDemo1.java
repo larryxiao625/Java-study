@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class ArrayDemo1 {
 	
 	public static void main(String[] args) {
-		//定义整型数组
+		//定义整型数
 		int[] a=new int[5];
 		Scanner sc=new Scanner(System.in);
 		//从键盘接受数据，为数组赋值
