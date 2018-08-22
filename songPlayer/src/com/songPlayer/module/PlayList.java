@@ -126,7 +126,9 @@ public class PlayList implements Serializable {
 			System.out.println("此播放列表为空");
 		} else {
 			while (it.hasNext()) {
+				System.out.println("**********************");
 				System.out.println(it.next().toString());
+				System.out.println("**********************");
 			}
 		}
 	}
