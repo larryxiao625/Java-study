@@ -4,13 +4,14 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
 import java.util.Set;
 
-public class PlayList {
+public class PlayList implements Serializable {
 	private String PlayListName;
 	Set<Song> musicList = new HashSet<Song>();
 
@@ -40,7 +41,6 @@ public class PlayList {
 	}
 
 	Scanner sc = new Scanner(System.in);
-	Iterator<Song> it = musicList.iterator();
 
 	/**
 	 * 将歌曲添加到播放列表
@@ -53,6 +53,7 @@ public class PlayList {
 	 * 通过id查找歌曲
 	 */
 	public Song searchSongById(String id) {
+		Iterator<Song> it = musicList.iterator();
 		Song song = null;
 		while (it.hasNext()) {
 			song = it.next();
@@ -68,6 +69,7 @@ public class PlayList {
 	 * 通过名称查询歌曲
 	 */
 	public Song searchSongByName(String n) {
+		Iterator<Song> it = musicList.iterator();
 		Song song = null;
 		while (it.hasNext()) {
 			song = it.next();
@@ -98,13 +100,18 @@ public class PlayList {
 	 */
 	public void deleteSong(String id) {
 		Song song = null;
-		while (it.hasNext()) {
-			song = it.next();
-			if (it.next().getId() == id) {
-				break;
-			} else {
-				System.out.println("未找到相应歌曲");
-				break;
+		Iterator<Song> it = musicList.iterator();
+		if (musicList.isEmpty()) { // 判断播放列表是否为空
+			System.out.println("此播放列表为空");
+		} else {
+			while (it.hasNext()) {
+				song = it.next();
+				if (song.getId() == id) {
+					break;
+				} else {
+					System.out.println("未找到相应歌曲");
+					break;
+				}
 			}
 		}
 		musicList.remove(song);
@@ -115,8 +122,12 @@ public class PlayList {
 	 */
 	public void displayAllSong() {
 		Iterator<Song> it = musicList.iterator();
-		while (it.hasNext()) {
-			System.out.println(it.next().toString());
+		if (musicList.isEmpty()) {
+			System.out.println("此播放列表为空");
+		} else {
+			while (it.hasNext()) {
+				System.out.println(it.next().toString());
+			}
 		}
 	}
 
@@ -124,8 +135,9 @@ public class PlayList {
 	 * 导出歌单
 	 */
 	public void exportPlayList() {
+		Iterator<Song> it = musicList.iterator();
 		try {
-			FileOutputStream fos = new FileOutputStream(this.getPlayListName());
+			FileOutputStream fos = new FileOutputStream(this.getPlayListName(),true);
 			ObjectOutputStream oos = new ObjectOutputStream(fos);
 			while (it.hasNext()) {
 				oos.writeObject(it.next());

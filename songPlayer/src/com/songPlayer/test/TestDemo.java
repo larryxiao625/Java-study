@@ -23,8 +23,19 @@ public class TestDemo {
 		PlayList testPlayList=new PlayList("主播放列表",testList);
 		testPlayList.addToPlayList(test1);
 		testPlayList.addToPlayList(test2);
+		if(testPlayList.searchSongById("s001")==null) {
+			System.out.println("未找到相应歌曲");
+		}else {
+			System.out.println(testPlayList.searchSongById("s001"));
+		}
 		testPlayList.displayAllSong();
-		
+		testPlayList.exportPlayList();
+		testPlayList.deleteSong("s001");
+		System.out.println("**********************");
+		testPlayList.displayAllSong();
+		testPlayList.exportPlayList();
+
+
 		
 	}
 	/**
