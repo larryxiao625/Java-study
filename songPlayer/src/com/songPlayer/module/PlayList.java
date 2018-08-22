@@ -73,7 +73,7 @@ public class PlayList implements Serializable {
 		Song song = null;
 		while (it.hasNext()) {
 			song = it.next();
-			if (song.getName() == n) {
+			if (song.getName().equals(n)) {
 				break;
 			}
 		}

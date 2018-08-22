@@ -139,17 +139,15 @@ public class TestDemo {
 						String playListName = sc.next();
 						if ((playListCollection.searchPlayListByName(playListName)) == null) {
 							System.out.println("未找到该播放列表，请重新输入");
-							break;
 						} else {
 							System.out.println("请输入要添加的歌曲数量");
 							int num2 = sc.nextInt();
 							for (int i = 0; i < num2; i++) {
 								System.out.println("请输入第" + (i + 1) + "歌曲id");
 								String songID = sc.next();
-								if (mainList.searchSongById(songID) != null) {
+								if (mainList.searchSongById(songID).getId().equals(songID)) {
 									(playListCollection.searchPlayListByName(playListName))
 											.addToPlayList(mainList.searchSongById(songID));
-									break;
 								} else {
 									System.out.println("请输入第" + (i + 1) + "歌曲名称");
 									String songName = sc.next();
@@ -225,7 +223,6 @@ public class TestDemo {
 								for (Entry<String, PlayList> entry : set) { // 修改主播放目录的歌曲后，全播放列表进行替换
 									entry.getValue().deleteSong(ID5);
 									entry.getValue().addToPlayList(changeSong);
-									break;
 								}
 								System.out.println("修改成功");
 
@@ -234,8 +231,8 @@ public class TestDemo {
 							(playListCollection.searchPlayListByName(playList5)).deleteSong(ID5);
 							(playListCollection.searchPlayListByName(playList5)).addToPlayList(changeSong);
 							System.out.println("修改成功");
-							break;
 						}
+						break;
 					case 6:
 						System.out.println("请输入要删除歌曲所在的列表名称");
 						String playList6 = sc.next();
@@ -254,33 +251,31 @@ public class TestDemo {
 								for (Entry<String, PlayList> entry : set) { // 删除主播放列表的歌曲，进行全播放列表遍历删除
 									entry.getValue().deleteSong(ID6);
 									System.out.println("删除成功");
-									break;
 								}
 							}
 						} else {
 							(playListCollection.searchPlayListByName(playList6)).deleteSong(ID6);
 							System.out.println("删除成功");
-							break;
 						}
+						break;
 					case 7:
 						System.out.println("请输入要查看播放列表名称");
 						String Name7 = sc.next();
 						if ((playListCollection.searchPlayListByName(Name7)) == null) {
 							System.out.println("未找到该播放列表");
-							break;
 						} else {
 							(playListCollection.searchPlayListByName(Name7)).displayAllSong();
 						}
+						break;
 					case 8:
 						System.out.println("请输入要导出的播放列表的名称");
 						String playListName8 = sc.next();
 						if ((playListCollection.searchPlayListByName(playListName8)) == null) {
 							System.out.println("未找到该播放列表");
-							break;
 						} else {
 							(playListCollection.searchPlayListByName(playListName8)).exportPlayList();
-							break;
 						}
+						break;
 					case 9:
 						flag1 = false;
 						break;
@@ -336,7 +331,7 @@ public class TestDemo {
 					}
 				} while (flag2);
 				break;
-			case 9:
+			case 0:
 				mainFlag = false;
 				break;
 			default:
