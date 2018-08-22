@@ -38,12 +38,14 @@ public class Song {
 		return result;
 	}
 	
-	public boolean equals(Song obj) {
-		if(this.getId()==obj.getId()&&this.getName()==obj.getName()&&this.getSinger()==obj.getSinger()) {
+	public boolean equals(Object obj) {
+		if(this==obj) {
 			return true;
-		}else {
-			return false;
+		}if(this.getId()==((Song) obj).getId()&&this.getName()==((Song) obj).getName()&&this.getSinger()==((Song) obj).getSinger()) {
+			return true;
 		}
+		return false;
+	
 	}
 	
 	public String toString() {

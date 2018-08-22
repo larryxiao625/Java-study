@@ -4,20 +4,21 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
-import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
+import java.util.Set;
 
 public class PlayList {
 	private String PlayListName;
-	List<Song> musicList = new ArrayList<Song>();
+	Set<Song> musicList = new HashSet<Song>();
 
 	public PlayList() {
 
 	}
 
-	public PlayList(String playlistname, List musiclist) {
+	public PlayList(String playlistname, Set musiclist) {
 		this.PlayListName = playlistname;
 		this.musicList = musiclist;
 	}
@@ -30,11 +31,11 @@ public class PlayList {
 		PlayListName = playListName;
 	}
 
-	public List<Song> getMusicList() {
+	public Set<Song> getMusicList() {
 		return musicList;
 	}
 
-	public void setMusicList(List<Song> musiclist) {
+	public void setMusicList(Set<Song> musiclist) {
 		this.musicList = musiclist;
 	}
 
@@ -89,6 +90,7 @@ public class PlayList {
 		String singer = sc.next();
 		Song tem = new Song(id, songName, singer);
 		musicList.add(tem);
+		System.out.println("修改成功");
 	}
 
 	/**
@@ -114,7 +116,7 @@ public class PlayList {
 	public void displayAllSong() {
 		Iterator<Song> it = musicList.iterator();
 		while (it.hasNext()) {
-			System.out.println(it.next());
+			System.out.println(it.next().toString());
 		}
 	}
 
