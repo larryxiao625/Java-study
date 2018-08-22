@@ -109,14 +109,14 @@ public class TestDemo {
 		Map<String, PlayList> playListMap = new HashMap<>();
 		PlayListCollection playListCollection = new PlayListCollection(playListMap);
 		playListCollection.addPlayList(mainList);
-		mainMenu();
-		int n = sc.nextInt();
 		boolean mainFlag = true;
-		while (mainFlag) {
+		do {
+			mainMenu();
+			int n = sc.nextInt();
 			switch (n) {
 			case 1:
 				boolean flag1 = true;
-				while (true) {
+				do {
 					palyerListMenu();
 					int m = sc.nextInt();
 					switch (m) {
@@ -273,7 +273,7 @@ public class TestDemo {
 						}
 					case 8:
 						System.out.println("请输入要导出的播放列表的名称");
-						String playListName8=sc.next();
+						String playListName8 = sc.next();
 						if ((playListCollection.searchPlayListByName(playListName8)) == null) {
 							System.out.println("未找到该播放列表");
 							break;
@@ -282,14 +282,18 @@ public class TestDemo {
 							break;
 						}
 					case 9:
-						flag1=false;
+						flag1 = false;
+						break;
+					default:
+						System.out.println("输入错误，请重新输入");
 						break;
 					}
-				}
+				} while (flag1);
+				break;
 			case 2:
 				boolean flag2;
-				do{
-					flag2=true;
+				do {
+					flag2 = true;
 					playerMneu();
 					int i;
 					i = sc.nextInt();
@@ -297,7 +301,7 @@ public class TestDemo {
 					case 1:
 						System.out.println("输入要添加播放列表的名称");
 						String playListName = sc.next();
-						Set playListSet = new HashSet();
+						Set<Song> playListSet = new HashSet<Song>();
 						playListCollection.addPlayList(new PlayList(playListName, playListSet));
 						break;
 					case 2:
@@ -326,11 +330,21 @@ public class TestDemo {
 					case 9:
 						flag2 = false;
 						break;
+					default:
+						System.out.println("输入错误，请重新输入");
+						break;
 					}
-				}while(flag2);
-				
+				} while (flag2);
+				break;
+			case 9:
+				mainFlag = false;
+				break;
+			default:
+				System.out.println("输入错误，请重新输入");
 				break;
 			}
-		}
+
+		} while (mainFlag);
+
 	}
 }
