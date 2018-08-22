@@ -117,7 +117,7 @@ public class PlayList implements Serializable {
 		if (musicList.isEmpty()) { // 判断播放列表是否为空
 			System.out.println("此播放列表为空");
 		} else {
-			if(searchSongById(id)==null) {
+			if(this.searchSongById(id)==null) {
 				System.out.println("未找到该歌曲");
 			}else {
 				musicList.remove(song);
