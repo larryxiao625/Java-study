@@ -43,10 +43,11 @@ public class Song implements Serializable{
 	public boolean equals(Object obj) {
 		if(this==obj) {
 			return true;
-		}if(this.getId()==((Song) obj).getId()&&this.getName()==((Song) obj).getName()&&this.getSinger()==((Song) obj).getSinger()) {
+		}if(this.getId().equals(((Song) obj).getId())&&this.getName().equals(((Song) obj).getName())&&this.getSinger().equals(((Song) obj).getSinger())) {
 			return true;
+		}else {
+			return false;
 		}
-		return false;
 	
 	}
 	

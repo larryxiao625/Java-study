@@ -189,14 +189,14 @@ public class TestDemo {
 						} else {
 							playList4 = (playListCollection.searchPlayListByName(str4));
 						}
-						System.out.println("请输入要查询的歌曲名");
-						String Name4 = null;
-						Name4 = sc.next();
-						if (playList4.searchSongById(Name4) == null) {
+						System.out.println("请输入要查询的歌曲ID");
+						String ID4 = null;
+						ID4 = sc.next();
+						if (playList4.searchSongById(ID4) == null) {
 							System.out.println("未找到该歌曲");
 						} else {
 							System.out.println("已找到该歌曲，歌曲信息如下:");
-							System.out.println(playList4.searchSongByName(Name4));
+							System.out.println(playList4.searchSongById(ID4));
 						}
 						break;
 					case 5:
@@ -240,22 +240,21 @@ public class TestDemo {
 							System.out.println("未找到该播放列表，请重新输入");
 							break;
 						}
-						System.out.println("请输入要修改歌曲的id");
+						System.out.println("请输入要删除歌曲的id");
 						String ID6 = sc.next();
-						if ((playListCollection.searchPlayListByName(playList6)) == mainList) {
-
+						if ((playListCollection.searchPlayListByName(playList6))==mainList) {
 							if (mainList.searchSongById(ID6) == null) {
 								System.out.println("未找到该歌曲，请重新输入");
 							} else {
 								Set<Entry<String, PlayList>> set = playListCollection.getPlayListMap().entrySet();
 								for (Entry<String, PlayList> entry : set) { // 删除主播放列表的歌曲，进行全播放列表遍历删除
 									entry.getValue().deleteSong(ID6);
-									System.out.println("删除成功");
+									
 								}
+								break;
 							}
 						} else {
 							(playListCollection.searchPlayListByName(playList6)).deleteSong(ID6);
-							System.out.println("删除成功");
 						}
 						break;
 					case 7:

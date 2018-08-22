@@ -52,7 +52,7 @@ public class PlayListCollection {
 		for (Entry<String, PlayList> entry : set) {
 			if (entry.getKey().equals(playListName)) {
 				tem = entry.getValue();
-				continue;
+				break;
 			}
 		}
 		return tem;

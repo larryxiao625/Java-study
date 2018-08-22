@@ -7,13 +7,12 @@ import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Iterator;
-import java.util.List;
 import java.util.Scanner;
 import java.util.Set;
 
 public class PlayList implements Serializable {
 	private String PlayListName;
-	Set<Song> musicList = new HashSet<Song>();
+	static Set<Song> musicList = new HashSet<Song>();
 
 	public PlayList() {
 
@@ -46,22 +45,36 @@ public class PlayList implements Serializable {
 	 * 将歌曲添加到播放列表
 	 */
 	public void addToPlayList(Song song) {
-		this.musicList.add(song);
+		if(musicList.isEmpty()==true) {
+			this.musicList.add(song);
+			return;
+		}
+		Iterator<Song> it = musicList.iterator();
+		while (it.hasNext()) {
+			if (it.next().equals(song) == true) {
+				System.out.println("该歌曲已存在，请勿重复添加");
+			}else {
+				this.musicList.add(song);
+			}
+		}
 	}
 
 	/**
 	 * 通过id查找歌曲
 	 */
-	public Song searchSongById(String id) {
+	public static Song searchSongById(String id) {
 		Iterator<Song> it = musicList.iterator();
 		Song song = null;
 		while (it.hasNext()) {
-			song = it.next();
-			if (song.getId() == id) {
+			song=it.next();
+			if (song.getId().equals(id)) {
 				break;
+			}else {
+				song=null;
 			}
 		}
 		return song;
+
 
 	}
 
@@ -104,17 +117,13 @@ public class PlayList implements Serializable {
 		if (musicList.isEmpty()) { // 判断播放列表是否为空
 			System.out.println("此播放列表为空");
 		} else {
-			while (it.hasNext()) {
-				song = it.next();
-				if (song.getId() == id) {
-					break;
-				} else {
-					System.out.println("未找到相应歌曲");
-					break;
-				}
+			if(searchSongById(id)==null) {
+				System.out.println("未找到该歌曲");
+			}else {
+				musicList.remove(song);
+				System.out.println("删除成功");
 			}
 		}
-		musicList.remove(song);
 	}
 
 	/**
@@ -139,7 +148,7 @@ public class PlayList implements Serializable {
 	public void exportPlayList() {
 		Iterator<Song> it = musicList.iterator();
 		try {
-			FileOutputStream fos = new FileOutputStream(this.getPlayListName(),true);
+			FileOutputStream fos = new FileOutputStream(this.getPlayListName(), true);
 			ObjectOutputStream oos = new ObjectOutputStream(fos);
 			while (it.hasNext()) {
 				oos.writeObject(it.next());
